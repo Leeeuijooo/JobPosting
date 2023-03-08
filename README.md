@@ -1,2 +1,0 @@
-# JobPosting
-FinalProject - kakaocloudschool
