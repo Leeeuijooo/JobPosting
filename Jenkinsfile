@@ -33,7 +33,8 @@ pipeline {
 
         stage('Build') {
             steps {
-		sh "sudo npm cache verify"
+		sh "sudo npm cache clean --force"
+		sh "cd /path/to//JobPosting/frontend
 		sh "sudo npm install"
                 sh "sudo npm run build"
             }
