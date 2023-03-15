@@ -33,8 +33,8 @@ pipeline {
 
         stage('Build') {
             steps {
+		cd /JobPosting/frontend/
 		sh "sudo npm cache verify"
-		sh "sudo npm i"
                 sh "sudo npm install"
                 sh "sudo npm run build"
             }
