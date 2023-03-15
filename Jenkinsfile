@@ -34,7 +34,7 @@ pipeline {
         stage('Build') {
             steps {
 		sh "sudo npm cache verify"
-		sh "sudo npm update"	
+		sh "sudo npm i"
                 sh "sudo npm install"
                 sh "sudo npm run build"
             }
