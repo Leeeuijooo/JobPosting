@@ -13,33 +13,33 @@ pipeline {
         dockerHubRegistryCredential = 'docker_cre'
     }
 
-  stages {
-    stage('checkout Github') {
-      steps {
-        checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: gitCredential, url: gitWebaddress]]])
-        }
-        post {
-            failure {
-                echo 'Repository clone failure'
+    stages {
+        stage('checkout Github') {
+            steps {
+                checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: gitCredential, url: gitWebaddress]]])
             }
-            success {
-                echo 'Repository clone success'
-
+            post {
+                failure {
+                    echo 'Repository clone failure'
+                }
+                success {
+                    echo 'Repository clone success'
+                }
+            
         stage("Build") {
             steps {
                 sh "sudo npm clean install"
-            }
-                post {
-                    failure {
-                        echo 'npm install failure'
-                    }
-                    success {
-                        echo 'npm install success'
+                }
+            post {
+                failure {
+                    echo 'npm install failure'
+                }
+                success {
+                    echo 'npm install success'
                     }
                 }
             }
         }
     }
     }
-  }
 }
