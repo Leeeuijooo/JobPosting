@@ -33,9 +33,9 @@ pipeline {
 
         stage('Build') {
             steps {
-		npm i -g npm@latest
-		npm cache clean --force
-		rm -rf node_modules package-lock.json
+		sh "sudo npm i -g npm@latest"
+		sh "sudo npm cache clean --force"
+		sh "sudo rm -rf node_modules package-lock.json"
                 sh "sudo npm install"
                 sh "sudo npm run build"
             }
