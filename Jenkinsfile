@@ -34,8 +34,7 @@ pipeline {
         stage('Build') {
             steps {
 		sh "sudo npm cache verify"
-		sh "npm start --prefix '/JobPosting/frontend/'"
-		sh "sudo npm install -g npm"
+		sh "sudo npm install"
                 sh "sudo npm run build"
             }
             post {
