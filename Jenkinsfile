@@ -34,7 +34,7 @@ pipeline {
         stage('Build') {
             steps {
 		sh "sudo npm i -g npm@latest"
-		sh "sudo npm cache clean"
+		sh "sudo npm cache verify"
 		sh "sudo rm -rf node_modules package-lock.json"
 
 		sh "sudo create-react-app ra"
