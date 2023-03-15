@@ -33,6 +33,7 @@ pipeline {
 
         stage('Build') {
             steps {
+		sh "cd react-app"
                 sh "sudo npm install"
                 sh "sudo npm run build"
             }
