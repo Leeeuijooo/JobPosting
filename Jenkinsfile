@@ -31,7 +31,7 @@ pipeline {
         }    
         stage('Build') {
             steps {
-                sh "sudo npm clean install"
+                sh "sudo npm install"
             }
             post {
                 failure {
