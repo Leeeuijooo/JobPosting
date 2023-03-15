@@ -16,6 +16,7 @@ pipeline {
     }
 
     stages {
+
         stage('checkout Github') {
             steps {
                 checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: gitCredential, url: gitWebaddress]]])
@@ -29,19 +30,21 @@ pipeline {
                     }
             }
         }    
+
         stage('Build') {
             steps {
-                sh "sudo npm install"
+                sh "sudo npm run build"
             }
             post {
                 failure {
-                    echo 'npm install failure'
+                    echo 'npm build failure'
                 }
                 success {
-                    echo 'npm install success'
+                    echo 'npm build success'
                     }
                 }
-            }
         }
+        
     }
+}
 
