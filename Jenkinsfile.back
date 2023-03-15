@@ -88,7 +88,7 @@ pipeline {
                 }
         }
 
-        stage('docker tag edit') {
+        stage('docker image push') {
             steps {
                 withDockerRegistry(credentialsId: dockerHubRegistryCredential, url: '') {
                     sh "docker push ${dockerHubRegistry}:${currentBuild.number}"
