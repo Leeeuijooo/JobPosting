@@ -25,11 +25,12 @@ pipeline {
                 success {
                     echo 'Repository clone success'
                 }
+            }
             
-        stage("Build") {
+        stage('Build') {
             steps {
                 sh "sudo npm clean install"
-                }
+            }
             post {
                 failure {
                     echo 'npm install failure'
@@ -40,6 +41,5 @@ pipeline {
                 }
             }
         }
-    }
     }
 }
