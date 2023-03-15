@@ -4,7 +4,15 @@ pipeline {
         stage("Build") {
             steps {
                 sh "sudo npm install"
-                sh "sudo npm run build"
+            }
+                post {
+                    failure {
+                        echo 'npm install failure'
+                    }
+                    success {
+                        echo 'npm install success'
+                    }
+                }
             }
         }
     }
