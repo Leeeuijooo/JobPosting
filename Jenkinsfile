@@ -33,7 +33,9 @@ pipeline {
 
         stage('Build') {
             steps {
-		sh "cd react-app"
+		npm i -g npm@latest
+		npm cache clean --force
+		rm -rf node_modules package-lock.json
                 sh "sudo npm install"
                 sh "sudo npm run build"
             }
