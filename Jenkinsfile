@@ -37,7 +37,7 @@ pipeline {
 		sh "sudo npm cache verify"
 		sh "sudo rm -rf node_modules package-lock.json"
 
-		sh "sudo create-react-app ra"
+		sh "create-react-app ra"
 		sh "cd ra"
                 sh "sudo npm install"
                 sh "sudo npm run build"
