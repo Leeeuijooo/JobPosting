@@ -33,7 +33,9 @@ pipeline {
 
         stage('Node Build') {
             steps {
+		sh 'rm -rf good'
 		sh 'mkdir good'
+		sh 'pwd'
 		sh 'npm cache verify'
             }
             post {
