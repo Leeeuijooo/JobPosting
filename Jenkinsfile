@@ -34,9 +34,7 @@ pipeline {
         stage('Node Build') {
             steps {
 		sh 'mkdir good'
-		sh 'npm cache verify'
-		sh "sudo chmod -R 755 /var/lib/jenkins/workspace/DjangoPipeline/frontend"
-		sh "cd /var/lib/jenkins/workspace/DjangoPipeline/frontend && sudo npm install && sudo npm build"
+		sh 'npm cache verify
             }
             post {
                 failure {
