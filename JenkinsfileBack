@@ -30,6 +30,7 @@ pipeline {
 
         stage('migrate') {
             steps {
+		sh "cd ./web"
                 sh "pwd"
                 sh "docker-compose run --rm web sh -c 'python manage.py migrate'"
             }
