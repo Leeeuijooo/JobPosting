@@ -29,6 +29,7 @@ pipeline {
 
         stage('migrate') {
             steps {
+                sh cd /JobPosting
                 sh 'docker-compose run --rm web sh -c "python manage.py migrate"'
             }
             post {
@@ -43,6 +44,7 @@ pipeline {
 
         stage('collectstatic') {
             steps {
+                sh cd /JobPosting
                 sh 'docker-compose run --rm web sh -c "python manage.py collectstatic"'
             }
             post {
@@ -57,6 +59,7 @@ pipeline {
 
         stage('docker-compose Build') {
             steps {
+                sh cd /JobPosting
                 sh 'docker-compose up --build'
             }
             post {
@@ -71,6 +74,7 @@ pipeline {
 
         stage('docker tag edit') {
             steps {
+                sh cd /JobPosting
                 sh "docker build -t ${dockerHubRegistry}:${currentBuild.number} ."
                 sh "docker build -t ${dockerHubRegistry}:latest ."
             }
@@ -86,6 +90,7 @@ pipeline {
 
         stage('docker image push') {
             steps {
+                sh cd /JobPosting
                 withDockerRegistry(credentialsId: dockerHubRegistryCredential, url: '') {
                     sh "docker push ${dockerHubRegistry}:${currentBuild.number}"
                     sh "docker push ${dockerHubRegistry}:latest"
