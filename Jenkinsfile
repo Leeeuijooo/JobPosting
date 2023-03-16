@@ -34,7 +34,7 @@ pipeline {
         stage('Node Build') {
             steps {
 		sh 'mkdir good'
-		sh 'npm cache verify
+		sh 'npm cache verify'
             }
             post {
                 failure {
