@@ -30,7 +30,9 @@ pipeline {
 
         stage('migrate') {
             steps {
+                sh "pwd"
                 dir("${dirJobPosting}/"){
+                    sh "pwd"
                     sh 'docker-compose run --rm web sh -c "python manage.py migrate"'
                 }
             }
