@@ -31,7 +31,7 @@ pipeline {
         stage('migrate') {
             steps {
                 sh "pwd"
-                sh 'docker-compose run --rm web sh -c "python manage.py migrate"'
+                sh "docker-compose run --rm web sh -c 'python manage.py migrate'"
             }
             post {
                 failure {
