@@ -34,7 +34,7 @@ pipeline {
         stage('Node Build') {
             steps {
 		sh 'npm cache verify'
-		sh 'cd /var/lib/jenkins/workspace/gitPipe for Node/frontend && sudo npm install && sudo npm build"
+		sh 'cd /var/lib/jenkins/workspace/gitPipe for Node/frontend && sudo npm install && sudo npm build'
             }
             post {
                 failure {
