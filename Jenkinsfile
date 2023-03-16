@@ -31,10 +31,11 @@ pipeline {
             }
         }    
 
-        stage('Build') {
+        stage('Node Build') {
             steps {
+		sh 'mkdir good'
+		sh 'npm cache verify'
 		sh "sudo chmod -R 755 /var/lib/jenkins/workspace/DjangoPipeline/frontend"
-		sh "sudo npm cache clean --force"
 		sh "cd /var/lib/jenkins/workspace/DjangoPipeline/frontend && sudo npm install && sudo npm build"
             }
             post {
