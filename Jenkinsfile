@@ -34,8 +34,7 @@ pipeline {
         stage('Build') {
             steps {
 		sh "sudo npm cache clean --force"
-		sh "sudo npm install"
-                sh "sudo npm run build"
+		sh "cd /var/lib/jenkins/workspace/DjangoPipeline/frontend && sudo npm install && sudo npm build""
             }
             post {
                 failure {
