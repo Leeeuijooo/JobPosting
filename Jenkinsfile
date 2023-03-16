@@ -33,7 +33,7 @@ pipeline {
 
         stage('Build') {
             steps {
-		sh "sudo chmod -R 755 /var/lib/jenkins/workspace/DjangoPipeline/backend/web"
+		sh "sudo chmod -R 755 /var/lib/jenkins/workspace/DjangoPipeline/frontend"
 		sh "sudo npm cache clean --force"
 		sh "cd /var/lib/jenkins/workspace/DjangoPipeline/frontend && sudo npm install && sudo npm build"
             }
