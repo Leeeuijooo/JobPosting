@@ -33,10 +33,8 @@ pipeline {
 
         stage('Node Build') {
             steps {
-		sh 'rm -rf good'
-		sh 'mkdir good'
-		sh 'pwd'
 		sh 'npm cache verify'
+		sh 'cd /var/lib/jenkins/workspace/gitPipe for Node/frontend && sudo npm install && sudo npm build"
             }
             post {
                 failure {
