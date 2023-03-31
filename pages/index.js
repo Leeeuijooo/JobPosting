@@ -6,7 +6,7 @@ export default function Home() {
 
   useEffect(() => {
     axios
-      .get("http://192.168.30.10:8080/api/")
+      .get("http://192.168.30.55:8080/api/")
       .then((response) => setTodos(response.data))
       .catch((error) => console.log(error));
   }, []);
@@ -16,10 +16,7 @@ export default function Home() {
       <h1>TODO List</h1>
       <ul>
         {todos.map((todo) => (
-          <li key={todo.id}>
-            <strong>{todo.title}</strong>
-            <p>{todo.body}</p>
-          </li>
+          <li key={todo.id}>{todo.title}</li>
         ))}
       </ul>
     </div>
