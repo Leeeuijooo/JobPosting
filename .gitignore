@@ -1,1 +1,7 @@
 .git
+.next  
+.pnp.cjs  
+.pnp.loader.mjs  
+.vscode  
+.yarn	
+.yarnrc.yml
